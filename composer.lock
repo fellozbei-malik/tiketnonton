@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8036c6c5e5efb3a550a455c649a3a383",
+    "content-hash": "7c76560793598c99b5ce2f618cdd77f7",
     "packages": [
         {
             "name": "althinect/filament-spatie-roles-permissions",
@@ -2032,6 +2032,48 @@
                 "source": "https://github.com/filamentphp/filament"
             },
             "time": "2025-06-12T15:11:14+00:00"
+        },
+        {
+            "name": "froiden/sql-generator",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Froiden/sql-generator.git",
+                "reference": "03d517276c8d1f5127d578b9986b7b4ba9f20e6f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Froiden/sql-generator/zipball/03d517276c8d1f5127d578b9986b7b4ba9f20e6f",
+                "reference": "03d517276c8d1f5127d578b9986b7b4ba9f20e6f",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">= 5.3"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Froiden\\SqlGenerator\\": "src",
+                    "Froiden\\SqlGenerator\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jayant Soni",
+                    "email": "jayant@froiden.com"
+                }
+            ],
+            "description": "convert Laravel migrations to raw SQL scripts",
+            "support": {
+                "issues": "https://github.com/Froiden/sql-generator/issues",
+                "source": "https://github.com/Froiden/sql-generator/tree/master"
+            },
+            "time": "2018-06-26T08:11:09+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -11247,12 +11289,14 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "froiden/sql-generator": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }

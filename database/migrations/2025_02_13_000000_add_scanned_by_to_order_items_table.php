@@ -8,6 +8,10 @@ return new class extends Migration
 {
     public function up(): void
     {
+        if (!Schema::hasTable('order_items') || Schema::hasColumn('order_items', 'scanned_by')) {
+            return;
+        }
+
         Schema::table('order_items', function (Blueprint $table) {
             $table->foreignId('scanned_by')
                 ->nullable()
@@ -19,8 +23,13 @@ return new class extends Migration
 
     public function down(): void
     {
+        if (!Schema::hasTable('order_items') || !Schema::hasColumn('order_items', 'scanned_by')) {
+            return;
+        }
+
         Schema::table('order_items', function (Blueprint $table) {
             $table->dropForeign(['scanned_by']);
+            $table->dropColumn('scanned_by');
         });
     }
 };

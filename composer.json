@@ -10,6 +10,7 @@
         "althinect/filament-spatie-roles-permissions": "^2.3",
         "barryvdh/laravel-dompdf": "^3.1",
         "filament/filament": "^3.3",
+        "froiden/sql-generator": "dev-master",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.10.1",

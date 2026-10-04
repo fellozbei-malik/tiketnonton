@@ -22,6 +22,7 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->boolean('is_scanned')->default(false);
             $table->timestamp('scanned_at')->nullable();
+            $table->foreignId('scanned_by')->nullable()->constrained('users')->nullOnDelete();
             $table->timestamps();
         });
     }
