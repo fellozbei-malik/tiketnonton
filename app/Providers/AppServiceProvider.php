@@ -28,7 +28,7 @@ class AppServiceProvider extends ServiceProvider
         Gate::policy(\Spatie\Permission\Models\Role::class, \App\Policies\RolePolicy::class);
         Gate::policy(\Spatie\Permission\Models\Permission::class, \App\Policies\PermissionPolicy::class);
         Gate::before(function ($user, $ability) {
-            return $user->hasRole('admin') ? true : null;
+            return $user->hasRole(['admin', 'Super Admin']) ? true : null;
         });
         
 

@@ -25,7 +25,9 @@ class AuthController extends Controller
         ]);
 
         // Check cridential
-        if (Auth::attempt($cridential)) {
+        $remember = $request->has('remember_me');
+        
+        if (Auth::attempt($cridential, $remember)) {
             $request->session()->regenerate();
             return redirect()->route('home')
                 ->with('toast', ['message' => 'Login success<br>Welcome', 'type' => 'success']);

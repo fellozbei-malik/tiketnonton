@@ -83,3 +83,6 @@ Route::get("/register", [AuthController::class, 'register'])->name("register");
 Route::get("/logout", [AuthController::class, 'logout'])->name("logout");
 Route::post("/authenticate", [AuthController::class, "authenticate"])->name("loginAccount");
 Route::post("/createAccount", [AuthController::class, "createAccount"])->name("createAccount");
+
+use App\Http\Controllers\auth\FirebaseAuthController;
+Route::post('/auth/firebase/callback', [FirebaseAuthController::class, 'callback'])->name('firebase.callback');

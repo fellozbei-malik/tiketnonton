@@ -43,7 +43,7 @@
                         <hr class="border-white/70">
                     </div>
                     <ul class="pb-4" aria-labelledby="user-menu-button">
-                        @if(auth()->check() && auth()->user()->hasRole('admin'))
+                        @if(auth()->check() && auth()->user()->hasAnyRole(['admin', 'Super Admin', 'author', 'Blog Author', 'Event Manager', 'Order Manager', 'Customer Support']))
                         <li>
                             <a href="/admin" class="block px-4 py-2 text-sm text-white hover:bg-white/20 flex items-center ">
                                 {{ __('common.admin_dashboard') }}
@@ -115,7 +115,7 @@
 
                         <div id="user-menu-mobile" class="hidden z-10 mt-2 bg-black backdrop-blur-sm divide-y divide-white/20 border border-white/60 rounded-lg shadow w-full">
                             <ul class="p-2 text-sm text-gray-200" aria-labelledby="user-menu-button-mobile">
-                                @if(auth()->check() && auth()->user()->hasRole('admin'))
+                                @if(auth()->check() && auth()->user()->hasAnyRole(['admin', 'Super Admin', 'author', 'Blog Author', 'Event Manager', 'Order Manager', 'Customer Support']))
                                 <li>
                                     <a href="/admin" class="block px-4 py-2 hover:bg-white/20 rounded-lg text-white flex items-center gap-2">
                                         {{ __('common.admin_dashboard') }}

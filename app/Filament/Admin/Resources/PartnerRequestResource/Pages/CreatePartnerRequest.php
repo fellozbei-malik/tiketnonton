@@ -9,4 +9,9 @@ use Filament\Resources\Pages\CreateRecord;
 class CreatePartnerRequest extends CreateRecord
 {
     protected static string $resource = PartnerRequestResource::class;
+
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }

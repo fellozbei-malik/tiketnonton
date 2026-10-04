@@ -20,8 +20,8 @@ class CheckFilamentAccess
         /** @var \App\Models\User */
         $user = Auth::user();
 
-        // 2. Jika user tidak ada ATAU tidak punya role 'admin' atau 'author'
-        if (!$user || !$user->hasAnyRole(['admin', 'author'])) {
+        // 2. Jika user tidak ada ATAU tidak punya role apapun untuk akses admin
+        if (!$user || !$user->hasAnyRole(['admin', 'Super Admin', 'author', 'Blog Author', 'Event Manager', 'Order Manager', 'Customer Support'])) {
             // 3. Tolak akses dan tampilkan halaman error 403 (Forbidden)
             // abort(403, 'ANDA TIDAK MEMILIKI HAK AKSES');
             return redirect()->route('home') ->with('toast', ['message' => 'Anda tidak memiliki akses admin', 'type' => 'danger']);

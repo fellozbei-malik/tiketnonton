@@ -181,15 +181,10 @@
                         </div>
 
                         {{-- Social Login --}}
-                        <div class="grid grid-cols-3 gap-3">
-                            <button type="button" class="flex items-center justify-center p-3 rounded-xl border-2 border-slate-200 hover:border-purple-300 hover:bg-purple-50 transition-all group">
+                        <div class="grid grid-cols-1 gap-3">
+                            <button type="button" id="google-login-btn" class="flex items-center justify-center p-3 rounded-xl border-2 border-slate-200 hover:border-purple-300 hover:bg-purple-50 transition-all group">
                                 <img src="{{ Storage::url('icon/google.svg') }}" alt="Google" class="h-6 w-6 group-hover:scale-110 transition-transform">
-                            </button>
-                            <button type="button" class="flex items-center justify-center p-3 rounded-xl border-2 border-slate-200 hover:border-purple-300 hover:bg-purple-50 transition-all group">
-                                <img src="{{ Storage::url('icon/facebook.svg') }}" alt="Facebook" class="h-6 w-6 group-hover:scale-110 transition-transform">
-                            </button>
-                            <button type="button" class="flex items-center justify-center p-3 rounded-xl border-2 border-slate-200 hover:border-purple-300 hover:bg-purple-50 transition-all group">
-                                <img src="{{ Storage::url('icon/apple.svg') }}" alt="Apple" class="h-6 w-6 group-hover:scale-110 transition-transform">
+                                <span class="ml-3 font-semibold text-slate-700">Continue with Google</span>
                             </button>
                         </div>
 
@@ -271,4 +266,44 @@
     }
 
 </style>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-app.js";
+  import { getAuth, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.9.0/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "{{ env('FIREBASE_API_KEY') }}",
+    authDomain: "{{ env('FIREBASE_AUTH_DOMAIN') }}",
+    projectId: "{{ env('FIREBASE_PROJECT_ID') }}",
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  document.getElementById('google-login-btn').addEventListener('click', () => {
+      signInWithPopup(auth, provider)
+        .then((result) => {
+            return result.user.getIdToken();
+        })
+        .then((idToken) => {
+            fetch("{{ route('firebase.callback') }}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({ id_token: idToken })
+            }).then(res => res.json()).then(data => {
+                if(data.success) {
+                    window.location.href = data.redirect;
+                } else {
+                    alert("Login gagal: " + data.message);
+                }
+            });
+        })
+        .catch((error) => console.error("Firebase Login Error", error));
+  });
+</script>
+
 @endsection

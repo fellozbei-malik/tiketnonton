@@ -50,7 +50,7 @@ class PostResource extends Resource
                             ->required()
                             ->label('Author')
 
-                            ->hidden(!$user->hasRole('admin')),
+                            ->hidden(!$user->hasRole(['admin', 'Super Admin'])),
 
                         Forms\Components\Textarea::make('excerpt')
                             ->required()
@@ -136,7 +136,7 @@ class PostResource extends Resource
         /** @var \App\Models\User */
         $user = Auth::user();
         // Jika user adalah admin, tampilkan semua post
-        if ($user->hasRole('admin')) {
+        if ($user->hasRole(['admin', 'Super Admin'])) {
             return parent::getEloquentQuery();
         }
 

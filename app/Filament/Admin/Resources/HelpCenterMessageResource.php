@@ -144,6 +144,6 @@ class HelpCenterMessageResource extends Resource
     {
         /** @var \App\Models\User */
         $user = Auth::user();
-        return $user?->hasRole('admin') ?? false;
+        return $user?->hasRole(['admin', 'Super Admin']) ?? false;
     }
 }
