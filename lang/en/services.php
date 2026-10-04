@@ -8,7 +8,7 @@ return [
     
     // Management Ticketing Concert
     'ticketing_title' => 'MANAGEMENT TICKETING CONCERT SERVICES',
-    'ticketing_disclaimer' => 'Management Ticketing is not responsible for the success or failure of event sales. Ticketing Management only manages and reports the flow of ticket sales transactions until distribution.',
+    'ticketing_disclaimer' => 'Ticketing management facilitates and streamlines event operations, ensuring accountability in the reporting and calculation of ticket sales.',
     'ticketing_concert_title' => 'Management Ticketing Concert',
     'ticketing_concert_desc' => 'Management Ticketing Concert service officially appointed by the Organizer and acts on behalf of the organizer as a ticketing coordinator that manages and is responsible for sales activities in terms of the flow of tickets for an event. From appointment to Ticket Box, making SPK agreements to third parties, ticket allocation, sales communication to collection or withdrawal of sales proceeds. Then Management Ticketing will provide periodic sales reports to the Organizer.',
     'ticket_box_title' => 'Ticket Box Event',

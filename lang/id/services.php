@@ -8,7 +8,7 @@ return [
     
     // Management Ticketing Concert
     'ticketing_title' => 'LAYANAN MANAGEMENT TICKETING CONCERT',
-    'ticketing_disclaimer' => 'Management Ticketing tidak bertanggung jawab atas penjualan laku tidaknya suatu acara. Ticketing Management hanya mengatur dan melapor arusnya transaksi penjualan ticket sampai distribusi.',
+    'ticketing_disclaimer' => 'Management ticketing membantu memepermudah / memperlancar kegiatan penyelenggaraan sebuah event agar event tesebut dalam pelaporan perhitungan penjualan ticket dapat dipertanggung jawabkakan.',
     'ticketing_concert_title' => 'Management Ticketing Concert',
     'ticketing_concert_desc' => 'Layanan Management Ticketing Concert yang ditunjuk resmi oleh Penyelenggara dan bertindak atas nama penyelenggara sebagai koordinator ticketing yang mengatur dan bertanggung jawab atas kegiatan-kegiatan penjualan dalam hal arus keluar masuknya tiket suatu acara. Dari penunjukan Kepada ticket Box, membuat SPK perjanjian kepada pihak ke III, penjatahan tiket, komunikasi penjualan hingga pengumpulan atau penarikan uang hasil penjualan. Kemudian Management Ticketing akan memberi laporan penjualan secara berkala kepada Penyelenggara.',
     'ticket_box_title' => 'Ticket Box Event',
